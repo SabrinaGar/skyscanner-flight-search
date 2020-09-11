@@ -1,7 +1,7 @@
 import React from 'react';
 import logo from './assets/img/logo-avion.png';
 import Footer from './components/Footer';
-import Content from './components/TableContent';
+import TableContent from './components/TableContent';
 import NavBar from './components/NavBar';
 import PhoneIcon from './assets/img/phone-icon.PNG';
 import AmbulanceIcon from './assets/img/ambulance-icon.PNG';
@@ -9,6 +9,7 @@ import ConsultIcon from './assets/img/consult-icon.PNG';
 import HomeIcon from './assets/img/home-icon.PNG';
 import MedIcon from './assets/img/med-icon.PNG';
 import HospIcon from './assets/img/hosp-icon.PNG';
+import HomeLayout from './components/HomeLayout';
 
 function App() {
   const navLinks = [
@@ -116,7 +117,7 @@ function App() {
 				hoverBackground="#ddd"
 				linkColor="#777"
 			/>
-      <Content tableContent={tableContent}></Content>
+      <HomeLayout tableContent={tableContent}></HomeLayout>
     <Footer
      background='rgb(32,8,68)'
      color='#FFFFFF' 
