@@ -1,9 +1,14 @@
 import React from 'react';
 import logo from './assets/img/logo-avion.png';
 import Footer from './components/Footer';
-import Content from './components/Content';
+import Content from './components/TableContent';
 import NavBar from './components/NavBar';
-
+import PhoneIcon from './assets/img/phone-icon.PNG';
+import AmbulanceIcon from './assets/img/ambulance-icon.PNG';
+import ConsultIcon from './assets/img/consult-icon.PNG';
+import HomeIcon from './assets/img/home-icon.PNG';
+import MedIcon from './assets/img/med-icon.PNG';
+import HospIcon from './assets/img/hosp-icon.PNG';
 
 function App() {
   const navLinks = [
@@ -18,7 +23,7 @@ function App() {
     }
     
   ]
-  const footerLinksC1 = [
+  const footerLinks = [
     {
       text: 'Planes',
       path: '/',
@@ -42,9 +47,7 @@ function App() {
       text: 'T&C', 
       path:'/'    
 
-    }
-     ]
-  const footerLinksC2=[
+    },
     {
       text: 'Aliados', 
       path:'/'       
@@ -56,9 +59,7 @@ function App() {
     {
       text: '¿Quiénes somos?', 
       path:'/'       
-    }
-  ]
-  const footerLinksC3=[
+    },
     {
       text: 'Políticas de Privacidad', 
       path:'/'    
@@ -74,6 +75,37 @@ function App() {
       path:'/'    
 
     }
+     ]
+  const tableContent=[
+    { title : 'Telemedicina',
+      text : 'Médicos 24 horas por teléfono y video llamada a través de la App para orientar y clasificar la emergencia.',
+      img: PhoneIcon
+    },
+    { title : 'Atención médica domiciliaria',
+      text : 'Envío de médicos y paramédicos al sitio donde se encuentre el paciente para realizar una consulta presencial y determinar mejor las necesidades',
+      img: HomeIcon
+    },
+    { title : 'Entrega de medicamentos',
+    text : 'Se realizará el envío de los medicamentos para enfermedades agudas (por ejemplo: antibióticos), incluidos en el alcance de asistensi, con entrega inmediata.',
+    img: MedIcon
+  },
+  { title : 'Ambulancia',
+      text : 'Envío de ambulancias equipadas con soporte avanzado de vida para la realización de traslados de emergencia hacia la clínica afiliada al seguro y de retorno por altas médicas.',
+      img: AmbulanceIcon
+    },
+    { title : 'Hospitalización y cirugía',
+      text : 'El paciente recibirá atención profesional en las clínicas afiliadas, hasta por el monto de la cobertura contratada.',
+      img: HospIcon
+    },
+    { title : 'Consultas médicas por especialista',
+    text : 'Consultas anuales de las siguientes especialidades: Medicina interna, cirugía general, traumatología, ginecología y urología',
+    img: ConsultIcon
+  },
+
+
+
+
+
   ]
   return (
     <div className="App">
@@ -84,13 +116,12 @@ function App() {
 				hoverBackground="#ddd"
 				linkColor="#777"
 			/>
-      <Content></Content>
+      <Content tableContent={tableContent}></Content>
     <Footer
      background='rgb(32,8,68)'
      color='#FFFFFF' 
-     footerLinksC1={footerLinksC1}
-     footerLinksC2={footerLinksC2}
-     footerLinksC3={footerLinksC3}></Footer>
+     footerLinks={footerLinks}
+    ></Footer>
     </div>
   );
 }

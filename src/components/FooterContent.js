@@ -1,22 +1,24 @@
 import React, { useState } from 'react';
 import { Link, BrowserRouter as Router } from "react-router-dom";
 
-const FooterContent= ( {footerLink  })=>{
+const FooterContent= ( {footerLinks})=>{
     return(
-  
-    <div class = "footer-columns" >
-    {footerLink.map((link) =>
-        <a class= "footer-links"                         
-        
-        >
+  <div className="footer-rows">
+   
+    {footerLinks.map((link) =>
+     <div className = "footer-columns" >
+                      
             <Router>
                 <Link
+                className="footer-links"
                     to={link.path}
                 >   {link.text}
                 </Link>
             </Router>
-        </a>
+        
+        </div>
     )}
+     
 </div>
 )
 

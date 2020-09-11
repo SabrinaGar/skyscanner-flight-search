@@ -60,15 +60,16 @@
   .footer-columns{
     display: flex;
     flex-direction: column;
-    text-align: left;
-    
+    text-align: center;
+    margin-bottom: 5px;
+        
   }
   .footer-links{
-    margin-bottom: 20px;
+    text-decoration: none!important; 
     font-size: 10px;
     text-align: center;
     color:$secondary-font-color;
-    text-decoration: none;
+
     
   
 }
@@ -76,9 +77,10 @@
 .footer-rows{
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
-    gap: 20px;
+    gap: 10px;
+    margin-bottom: 10px;
      flex-direction: column;
-    margin-left: 60px;
+    margin-left: 25px;
     @media (max-width: 1000px) {
       grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
       margin-left: 0px;
@@ -89,12 +91,12 @@
     flex-direction: column;
     justify-content: center;
     max-width: 1000px;
-    margin: 0 auto;
+    margin: 20px;
 }
   i{
       color:white;
       font-size: 18px;
-    margin-right: 16px;
+      margin-right: 16px;
   }
 }
  

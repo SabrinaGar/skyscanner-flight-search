@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import FooterContent from './FooterContent';
 
 
-const Footer = ({ background, color, footerLinksC1,footerLinksC2,footerLinksC3 }) => {
+const Footer = ({ background, color, footerLinks}) => {
 
     return (
         <footer
@@ -15,20 +15,13 @@ const Footer = ({ background, color, footerLinksC1,footerLinksC2,footerLinksC3 }
                       
                         <p class ='small-font' ><span>Subscribete ahora y obtén un beneficio exclusivo</span></p>
                         <button class="button">Subscríbete ahora</button>
-                        <hr class='line-separator'></hr>
-                        <div class= "footer-wrapper">    
-                            <div class="footer-rows">
-                                <FooterContent footerLink={footerLinksC1} ></FooterContent>
-                                <FooterContent footerLink={footerLinksC2} ></FooterContent>
-                                <FooterContent footerLink={footerLinksC3} ></FooterContent>
-                            </div>
-                        </div>
-                       
-                            <i class="fab fa-facebook-square"></i>
-                            <i class="fab fa-linkedin-in"></i>
-                            <i class="fab fa-facebook-square"></i>
-                            <i class="fab fa-twitter"></i>
-                            <i class="fab fa-instagram"></i>
+                        <hr class='line-separator'></hr>     
+                        <FooterContent footerLinks={footerLinks} ></FooterContent>
+                            <i className="fab fa-facebook-square"></i>
+                            <i className="fab fa-linkedin-in"></i>
+                            <i className="fab fa-facebook-square"></i>
+                            <i className="fab fa-twitter"></i>
+                            <i className="fab fa-instagram"></i>
                     
                         <p class='small-font'>asistensi.com © 2020</p>
                     </div>
