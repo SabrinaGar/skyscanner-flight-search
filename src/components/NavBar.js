@@ -15,6 +15,7 @@ const NavBar = ({ background, hoverBackground, linkColor, navLinks, logo }) => {
             >
                 <figure className="image-logo" onClick={ () => { setNavOpen(!navOpen) } }>
                     <img src={ logo } height="40px" width="200px" alt="toolbar-logo" />
+                    <i class="fas fa-bars"></i>
                 </figure>
                 { navLinks.map((link, index) => 
                     <li
@@ -26,7 +27,7 @@ const NavBar = ({ background, hoverBackground, linkColor, navLinks, logo }) => {
                         <Router>
                         <Link
                             to={link.path}
-                            style={{ color: linkColor }}
+                            style={{ color: linkColor, float: 'right' }}
                         >   { link.text }
                         </Link>
                      </Router>

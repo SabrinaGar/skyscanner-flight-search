@@ -1,0 +1,125 @@
+  $secondary-font-color:#525b7b;
+  footer.responsive-footer{
+      text-align: center;
+      
+      box-sizing:border-box;
+
+/*   * {
+    box-sizing:border-box;
+  } */
+  
+  .body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    position: absolute;
+   
+  }
+  
+  .container {
+    padding: 64px;
+   
+  }
+  
+  .row:after {
+    content: "";
+    display: table;
+    clear: both
+  }
+  
+  .column-66 {
+    float: center;
+    padding: 20px;
+  }
+
+  
+  .large-font {
+    font-size: 48px;
+  }
+  .small-font{
+    font-size: 12px;
+    color:$secondary-font-color;
+  }
+  
+  .line-separator{
+      margin-top: 60px;
+      margin-bottom: 40px;
+      background-color: $secondary-font-color;
+  }
+  .button {
+    border: none;
+    color: white;
+    padding: 14px 28px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #EC3434; 
+    margin-top: 30px;
+    border-radius: 4px
+    
+
+  }
+  .footer-columns{
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    
+  }
+  .footer-links{
+    margin-bottom: 20px;
+    font-size: 10px;
+    text-align: center;
+    color:$secondary-font-color;
+    text-decoration: none;
+    
+  
+}
+
+.footer-rows{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+    gap: 20px;
+     flex-direction: column;
+    margin-left: 60px;
+    @media (max-width: 1000px) {
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      margin-left: 0px;
+    }
+  }
+.footer-wrapper{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+  i{
+      color:white;
+      font-size: 18px;
+    margin-right: 16px;
+  }
+}
+ 
+  @media  screen and (max-width: 750px) {
+        
+  footer.responsive-footer{
+    text-align: center;
+    
+    box-sizing:border-box;
+ /*    * {
+        font-size: auto;
+        
+    } */
+    .column-66{
+
+      text-align: center;
+    }
+    .large-font {
+        font-size: 20px;
+      }
+    .button {
+        font-size: 14px !important;
+        min-width: 120px !important;
+        float : 'left';
+       
+   }
+  }
+}
