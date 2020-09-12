@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Background from '../assets/img/background-img.png';
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom"
 
 const Welcome = () => {
 
@@ -19,7 +20,14 @@ const Welcome = () => {
                
             </div>
             <div className ="button-wrapper">
-            <button className="button">Parte II</button>
+            <Router>
+                        <Link
+                            to={'/Flights'}
+                            >
+                         <button className="button">Parte II</button>
+                        </Link>
+                     </Router>
+           
                 <h2 className="medium-font">Más Información</h2>
             </div>
         </div>
