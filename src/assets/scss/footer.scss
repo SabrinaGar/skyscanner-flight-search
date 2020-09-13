@@ -9,10 +9,10 @@
   } */
   
   .body {
-    margin: 0;
-    font-family: Arial, Helvetica, sans-serif;
+    margin: 0px;
+    font-family: sans-serif;
     position: absolute;
-   
+
   }
   
   .container {
@@ -20,15 +20,11 @@
    
   }
   
-  .row:after {
-    content: "";
-    display: table;
-    clear: both
-  }
+ 
   
   .column-66 {
     float: center;
-    padding: 20px;
+ 
   }
 
   

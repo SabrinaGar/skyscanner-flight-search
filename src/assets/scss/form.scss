@@ -1,3 +1,4 @@
+$airplane-img:url('../img/airplane-img.jpg');
 .text-input{
     width: 200px;
     padding: 12px;
@@ -29,12 +30,31 @@
     margin-left:60px;
     padding: 50px;
 
+    }
+    .background{
+      background-image: $airplane-img;
+      background-repeat: no-repeat;
+      background-size: cover;
+   
+    }
+    .form-container{
+    
+      background-color: $secondary-font-color;
+      padding-left: 100px;
+      margin-left: 60px;
+      margin-right: 60px;
+      align-items: center;      
+      width: auto;
+      align-items: center;
+      text-align: center;
+      opacity: 0.6;
 
+      
     }
   .col-25 {
     float: left;
-    width: 25%;
-    margin-top: 6px;
+  
+
   }
   .title-container{
         text-align: center;
@@ -47,6 +67,10 @@
          padding: 30px;
     
     
+        }
+        .form-container{
+        padding-left:0px;
+        margin:auto;
         }
       
   }
