@@ -1,47 +1,63 @@
 import React from 'react';
 import { Component } from 'react';
 import { connect } from 'react-redux'
-//import { fetchFlights } from '../actions/actions';
-import airplaneImg from '../assets/img/airplane-img.jpg'
+import { fetchFlights, fetchLocale, fetchAirportID } from '../actions/actions';
+
 
 
 class Flight extends Component {
 
 
   state = {
-    // ...this.returnStateObject()
+    endCity: '',
+    startCity: '',
+    currency: '',
+    startDate: '',
+    endDate: '',
+    locale: '',
+    country: '',
+    startAirportID: '',
+    endAirportID: '',
+
   }
 
-  /*   returnStateObject() {
-      if (this.props.currentIndex == -1)
-        return {
-          bAccountNo: '',
-          iFSC: '',
-          bName: '',
-          amount: ''
-        }
-      else
-        return this.props.list[this.props.currentIndex]
-    } */
 
-  /*   componentDidUpdate(prevProps) {
-      if (prevProps.currentIndex != this.props.currentIndex || prevProps.list.length != this.props.list.length) {
-        this.setState({ ...this.returnStateObject() })
-      }
+  componentDidMount() {
+    // this.props.getLocale();
+    if (this.state.city && this.state.currency) {
+      this.props.getAirport(this.state.city, this.state.currency);
     }
-   */
+  }
+
   handleInputChange = (e) => {
     this.setState({
       [e.target.name]: e.target.value
     })
+    console.log("form response", e);
   }
-
+  /*  getFlightsList(startAirport,endAirport) {
+     this.props.getFlights(startAirport, endAirport, this.state.startDate, this.state.endDate)
+ 
+   } */
+  getFlightsList() {
+    this.props.getFlights(this.state.startAirportID, this.state.endAirportID, this.state.startDate, this.state.endDate)
+  }
+  /* 
+    getAirportID(){
+     const startAirport = this.props.getAirport(this.state.startCity,this.state.currency);
+     console.log('place',startAirport);
+     const endAirport = this.props.getAirport(this.state.startCity,this.state.currency);
+    this.getFlightsList(startAirport,endAirport,this.state.startDate, this.state.endDate);
+     
+  
+    }
+   */
   handleSubmit = (e) => {
     e.preventDefault()
-    if (this.props.currentIndex == -1)
-      this.props.insertTransaction(this.state)
-    else
-      this.props.updateTransaction(this.state)
+    //this.getAirportID();
+    console.log('estado ',this.state);
+    this.getFlightsList();
+   // console.log('vuelos',flights);
   }
 
   render() {
@@ -49,17 +65,17 @@ class Flight extends Component {
       <div className="container">
         <div className="body">
           <div className="background">
-          <div className="form-wrapper">
-            <div className="form-container">
+            <div className="form-wrapper">
+              <div className="form-container">
                 <form onSubmit={this.handleSubmit} autoComplete="off">
-                  <input className="text-input" name="Ciudad de orígen" placeholder="Ciudad de orígen" onChange={this.handleInputChange} value={this.state.bAccountNo} />
-                  < input className="text-input" name="Ciudad de destino" placeholder="Ciudad de destino" onChange={this.handleInputChange} value={this.state.iFSC} />
-                  < input className="text-input" name="Moneda" placeholder="Moneda" onChange={this.handleInputChange} value={this.state.bName} /><br></br>
-                  <label for="Fecha partida">Fecha de partida</label>
-                  < input type="date"className="text-input" name="Fecha partida" placeholder="Amount" onChange={this.handleInputChange} value={this.state.amount} />
-                  <label for="Fecha retorno">Fecha de retorno</label>
-                  < input type="date"className="text-input" name="Fecha retorno" placeholder="Amount" onChange={this.handleInputChange} value={this.state.amount} />
-                  <button className="button" type="submit">Submit</button>
+                  < input type="text" className="text-input" name="startAirportID" placeholder="Origen" onChange={this.handleInputChange} value={this.state.startAirportID} />
+                  < input className="text-input" name="endAirportID" placeholder="Destino" onChange={this.handleInputChange} value={this.state.endAirportID} />
+                  < input className="text-input" name="currency" placeholder="Moneda" onChange={this.handleInputChange} value={this.state.currency} /><br></br>
+                  <label hmlfor="Fecha partida">Fecha de partida</label>
+                  < input type="date" className="text-input" name="startDate" onChange={this.handleInputChange} value={this.state.startDate} />
+                  <label htmlFor="Fecha retorno">Fecha de retorno</label>
+                  < input type="date" className="text-input" name="endDate" onChange={this.handleInputChange} value={this.state.endDate} />
+                  <button className="button" type="submit" >Submit</button>
                 </form>
               </div>
             </div>
@@ -73,10 +89,24 @@ class Flight extends Component {
 
 const mapStateToProps = state => {
   return {
-    users: state.flights
+    // locale: state.locale,
+    //endAirportID: state.endAirport,
+    //startAirrportID: state.startAirport,
+    flights: state.flight
   }
+};
+const mapDispatchToProps = dispatch => {
+  return {
+    //getLocale: () =>
+    // dispatch(fetchLocale()),
+    getAirport: (city, currency) =>
+      dispatch(fetchAirportID(city, currency)),
+    getFlights: (endAirport, startAirport, startDate, endDate) =>
+      dispatch(fetchFlights(endAirport, startAirport, startDate, endDate)),
+  };
 };
 
 
 
-export default connect(mapStateToProps)(Flight)
+
+export default connect(mapStateToProps, mapDispatchToProps)(Flight)
