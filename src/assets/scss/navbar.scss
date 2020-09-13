@@ -4,10 +4,9 @@ nav.responsive-toolbar {
     position: fixed;
     z-index:10;
     background:inherit;
-    
 
     & ~ * {
-        padding-top: 60px;
+        padding-top: 50px;
     }
 
     ul {
@@ -17,7 +16,7 @@ nav.responsive-toolbar {
         padding-inline-start: 0;
         height: 100%;
         align-items: center;
-    
+        box-shadow: 2px 2px 2px #ccc;
 
         figure {
             margin-block-start: 0;
@@ -52,13 +51,7 @@ nav.responsive-toolbar {
         }
 
     }
-    
 }
-.ad-bar{
-    padding: 60px;
-    text-align: center;
-    background-color: rgb(32,8,68);
-     }
 
 @media screen and (max-width: 759px) {
     nav.responsive-toolbar {

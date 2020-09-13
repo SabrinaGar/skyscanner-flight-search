@@ -49,13 +49,16 @@ class Flight extends Component {
       <div className="container">
         <div className="body">
           <div className="background">
+          <div className="form-wrapper">
             <div className="form-container">
-              <div className="form-wrapper">
                 <form onSubmit={this.handleSubmit} autoComplete="off">
-                  <input className="text-input" name="bAccountNo" placeholder="Account Number" onChange={this.handleInputChange} value={this.state.bAccountNo} /><br />
-                  < input className="text-input" name="iFSC" placeholder="IFSC" onChange={this.handleInputChange} value={this.state.iFSC} /><br />
-                  < input className="text-input" name="bName" placeholder="A/C Holder Name" onChange={this.handleInputChange} value={this.state.bName} /><br />
-                  < input className="text-input" name="amount" placeholder="Amount" onChange={this.handleInputChange} value={this.state.amount} /><br />
+                  <input className="text-input" name="Ciudad de orígen" placeholder="Ciudad de orígen" onChange={this.handleInputChange} value={this.state.bAccountNo} />
+                  < input className="text-input" name="Ciudad de destino" placeholder="Ciudad de destino" onChange={this.handleInputChange} value={this.state.iFSC} />
+                  < input className="text-input" name="Moneda" placeholder="Moneda" onChange={this.handleInputChange} value={this.state.bName} /><br></br>
+                  <label for="Fecha partida">Fecha de partida</label>
+                  < input type="date"className="text-input" name="Fecha partida" placeholder="Amount" onChange={this.handleInputChange} value={this.state.amount} />
+                  <label for="Fecha retorno">Fecha de retorno</label>
+                  < input type="date"className="text-input" name="Fecha retorno" placeholder="Amount" onChange={this.handleInputChange} value={this.state.amount} />
                   <button className="button" type="submit">Submit</button>
                 </form>
               </div>
