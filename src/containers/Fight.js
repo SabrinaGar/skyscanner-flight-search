@@ -2,6 +2,7 @@ import React from 'react';
 import { Component } from 'react';
 import { connect } from 'react-redux'
 import { fetchFlights, fetchLocale, fetchAirportID } from '../actions/actions';
+import ShowFlights from '../components/ShowFlights';
 
 
 
@@ -18,7 +19,7 @@ class Flight extends Component {
     country: '',
     startAirportID: '',
     endAirportID: '',
-
+    flight:''
   }
 
 
@@ -32,8 +33,9 @@ class Flight extends Component {
   handleInputChange = (e) => {
     this.setState({
       [e.target.name]: e.target.value
+
     })
-    console.log("form response", e);
+
   }
   /*  getFlightsList(startAirport,endAirport) {
      this.props.getFlights(startAirport, endAirport, this.state.startDate, this.state.endDate)
@@ -52,15 +54,28 @@ class Flight extends Component {
   
     }
    */
+  renderFligths(){
+
+    const flights = this.props.flights ? this.props.flights:[];
+    console.log("props",flights)
+    if(this.props.flights)
+      return(
+     
+          <ShowFlights flights={this.props.flights} ></ShowFlights>
+      )
+    
+    }
   handleSubmit = (e) => {
     e.preventDefault()
     //this.getAirportID();
-    console.log('estado ',this.state);
+    console.log('estado ', this.state);
     this.getFlightsList();
-   // console.log('vuelos',flights);
+    // console.log('vuelos',flights);
+  this.renderFligths();
   }
 
   render() {
+ const {flights} = this.props;
     return (
       <div className="container">
         <div className="body">
@@ -68,8 +83,8 @@ class Flight extends Component {
             <div className="form-wrapper">
               <div className="form-container">
                 <form onSubmit={this.handleSubmit} autoComplete="off">
-                  < input type="text" className="text-input" name="startAirportID" placeholder="Origen" onChange={this.handleInputChange} value={this.state.startAirportID} />
-                  < input className="text-input" name="endAirportID" placeholder="Destino" onChange={this.handleInputChange} value={this.state.endAirportID} />
+                  < input type="text" className="text-input" name="startAirportID" placeholder="Código Origen" onChange={this.handleInputChange} value={this.state.startAirportID} />
+                  < input className="text-input" name="endAirportID" placeholder="Código Destino" onChange={this.handleInputChange} value={this.state.endAirportID} />
                   < input className="text-input" name="currency" placeholder="Moneda" onChange={this.handleInputChange} value={this.state.currency} /><br></br>
                   <label hmlfor="Fecha partida">Fecha de partida</label>
                   < input type="date" className="text-input" name="startDate" onChange={this.handleInputChange} value={this.state.startDate} />
@@ -83,7 +98,9 @@ class Flight extends Component {
         </div>
       </div>
     )
+
   }
+
 }
 
 

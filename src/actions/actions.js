@@ -28,7 +28,7 @@ export const fetchFlights = (endAirport, startAirport, currency,startDate, endDa
           method: 'GET',
           headers: {"X-RapidAPI-Key":  "c11c038ef1mshaea0e2402c5303fp1d75a1jsnfefe05e4019b"}
         })
-        dispatch({ type: FETCH_FLIGHTS, payload: dispatch.data })
+        dispatch({ type: FETCH_FLIGHTS, payload: dispatch.data },flights)
         console.log('flights:',flights);
       } catch (error) {
         console.log(error)
@@ -36,15 +36,15 @@ export const fetchFlights = (endAirport, startAirport, currency,startDate, endDa
     }
   }
   export const FETCH_AIRPORT = 'FETCH_AIRPORT';
-  export const fetchAirportID = (city, currency, locale) => {
-    return async (dispatch) => {
+  export const fetchAirportID = (city, currency) => {
+    return async (dispatch,getState) => {
       try {
         const airport = await axios({
-          url: ` "https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/autosuggest/v1.0/VE/${currency}/es-VE/?query=${city}`,
+          url: `https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/autosuggest/v1.0/VE/${currency}/es-VE/?query=${city}"`,
           method: 'GET',
           headers: {"X-RapidAPI-Key":  "c11c038ef1mshaea0e2402c5303fp1d75a1jsnfefe05e4019b"}
         })
-        dispatch({ type: FETCH_AIRPORT, payload: dispatch.data })
+        dispatch({ type: FETCH_AIRPORT },airport)
         console.log('airport:',airport);
       } catch (error) {
         console.log(error)

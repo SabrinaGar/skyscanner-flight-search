@@ -12,7 +12,7 @@ export function showFlights(state = initialState, action) {
       /*   case FETCH_AIRPORT:
             return Object.assign({}, state, {list: action.payload}) */
         case FETCH_FLIGHTS:
-            return Object.assign({}, state, {list: action.payload})
+            return Object.assign({}, state,{list: action.payload})
      /*    case FETCH_LOCAL:
             return Object.assign({}, state, {list: action.payload}) */
         default:
