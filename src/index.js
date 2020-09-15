@@ -7,12 +7,13 @@ import * as serviceWorker from './serviceWorker';
 import './assets/scss/index.scss';
 import thunk from 'redux-thunk';
 import reducers from './reducers'
+import rootReducer from './reducers/index';
 import { createStore, applyMiddleware } from 'redux';
 const createStoreWithMiddleware = applyMiddleware(thunk)(createStore);
 
 ReactDOM.render(
   <React.StrictMode>
-    <Provider store={createStoreWithMiddleware(reducers)}>
+    <Provider store={createStoreWithMiddleware(rootReducer)}>
       <App />
     </Provider>
   </React.StrictMode>,

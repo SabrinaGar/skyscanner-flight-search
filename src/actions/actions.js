@@ -28,7 +28,7 @@ export const fetchFlights = (endAirport, startAirport, currency,startDate, endDa
           method: 'GET',
           headers: {"X-RapidAPI-Key":  "c11c038ef1mshaea0e2402c5303fp1d75a1jsnfefe05e4019b"}
         })
-        dispatch({ type: FETCH_FLIGHTS, payload: dispatch.data },flights)
+        dispatch({ type: FETCH_FLIGHTS, payload: flights.data },)
         console.log('flights:',flights);
       } catch (error) {
         console.log(error)
@@ -51,5 +51,6 @@ export const fetchFlights = (endAirport, startAirport, currency,startDate, endDa
       }
     }
   }
+
 
 

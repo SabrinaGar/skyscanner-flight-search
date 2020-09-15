@@ -10,7 +10,7 @@ import HomeIcon from './assets/img/home-icon.PNG';
 import MedIcon from './assets/img/med-icon.PNG';
 import HospIcon from './assets/img/hosp-icon.PNG';
 import HomeLayout from './components/HomeLayout';
-import Flights from './containers/Fight';
+import Flights from './containers/Flight';
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom"
 
 function App() {

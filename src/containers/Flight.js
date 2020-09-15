@@ -25,10 +25,10 @@ class Flight extends Component {
 
   componentDidMount() {
     // this.props.getLocale();
-    if (this.state.city && this.state.currency) {
+  /*   if (this.state.city && this.state.currency) {
       this.props.getAirport(this.state.city, this.state.currency);
-    }
-  }
+    }*/
+  } 
 
   handleInputChange = (e) => {
     this.setState({
@@ -57,8 +57,7 @@ class Flight extends Component {
   renderFligths(){
 
     const flights = this.props.flights ? this.props.flights:[];
-    console.log("props",flights)
-    if(this.props.flights)
+    console.log("props",this.props)
       return(
      
           <ShowFlights flights={this.props.flights} ></ShowFlights>
@@ -75,7 +74,7 @@ class Flight extends Component {
   }
 
   render() {
- const {flights} = this.props;
+
     return (
       <div className="container">
         <div className="body">
@@ -109,15 +108,15 @@ const mapStateToProps = state => {
     // locale: state.locale,
     //endAirportID: state.endAirport,
     //startAirrportID: state.startAirport,
-    flights: state.flight
+    flights: state.list
   }
 };
 const mapDispatchToProps = dispatch => {
   return {
     //getLocale: () =>
     // dispatch(fetchLocale()),
-    getAirport: (city, currency) =>
-      dispatch(fetchAirportID(city, currency)),
+    // getAirport: (city, currency) =>
+    //   dispatch(fetchAirportID(city, currency)),
     getFlights: (endAirport, startAirport, startDate, endDate) =>
       dispatch(fetchFlights(endAirport, startAirport, startDate, endDate)),
   };
