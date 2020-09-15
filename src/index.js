@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
-import store from './app/store';
+//import store from './app/store';
 import { Provider } from 'react-redux';
 import * as serviceWorker from './serviceWorker';
 import './assets/scss/index.scss';
@@ -9,11 +9,15 @@ import thunk from 'redux-thunk';
 import reducers from './reducers'
 import rootReducer from './reducers/index';
 import { createStore, applyMiddleware } from 'redux';
-const createStoreWithMiddleware = applyMiddleware(thunk)(createStore);
+//const createStoreWithMiddleware = applyMiddleware(thunk)(createStore);
+const store= createStore(
+  rootReducer,
+  applyMiddleware(thunk)
+)
 
 ReactDOM.render(
   <React.StrictMode>
-    <Provider store={createStoreWithMiddleware(rootReducer)}>
+    <Provider store={store}>
       <App />
     </Provider>
   </React.StrictMode>,

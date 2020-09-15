@@ -1,6 +1,6 @@
 import { FETCH_FLIGHTS } from '../actions/actions';
 const initialState = {
-    list: []
+    //list: []
 }
 
 export function showFlights(state = initialState, action) {

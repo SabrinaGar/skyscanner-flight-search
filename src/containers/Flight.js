@@ -1,3 +1,4 @@
+import { createAsyncThunk } from '@reduxjs/toolkit';
 import React from 'react';
 import { Component } from 'react';
 import { connect } from 'react-redux'
@@ -19,16 +20,22 @@ class Flight extends Component {
     country: '',
     startAirportID: '',
     endAirportID: '',
-    flight:''
+    flight: '',
+    sent:''
+    
   }
 
 
-  componentDidMount() {
+ async componentDidMount() {
+    await this.state.sent 
+      this.renderFligths();
+      console.log('component did mount',this.props)
     // this.props.getLocale();
-  /*   if (this.state.city && this.state.currency) {
-      this.props.getAirport(this.state.city, this.state.currency);
-    }*/
-  } 
+    /*   if (this.state.city && this.state.currency) {
+        this.props.getAirport(this.state.city, this.state.currency);
+      }*/
+      
+  }
 
   handleInputChange = (e) => {
     this.setState({
@@ -54,23 +61,26 @@ class Flight extends Component {
   
     }
    */
-  renderFligths(){
+  renderFligths() {
 
-    const flights = this.props.flights ? this.props.flights:[];
-    console.log("props",this.props)
-      return(
-     
-          <ShowFlights flights={this.props.flights} ></ShowFlights>
-      )
-    
-    }
+    const flights = this.props.flights ? this.props.flights : [];
+    console.log("props", this.props)
+    return (
+
+      <ShowFlights flights={this.props.flights} ></ShowFlights>
+    )
+
+  }
   handleSubmit = (e) => {
     e.preventDefault()
     //this.getAirportID();
-    console.log('estado ', this.state);
+   
     this.getFlightsList();
     // console.log('vuelos',flights);
-  this.renderFligths();
+    //this.setState({sent:true});
+    console.log('props submit',this.props)
+    this.renderFligths();
+    console.log('estado ', this.state);
   }
 
   render() {
@@ -81,7 +91,7 @@ class Flight extends Component {
           <div className="background">
             <div className="form-wrapper">
               <div className="form-container">
-                <form onSubmit={this.handleSubmit} autoComplete="off">
+                <form onSubmit={this.handleSubmit} >
                   < input type="text" className="text-input" name="startAirportID" placeholder="Código Origen" onChange={this.handleInputChange} value={this.state.startAirportID} />
                   < input className="text-input" name="endAirportID" placeholder="Código Destino" onChange={this.handleInputChange} value={this.state.endAirportID} />
                   < input className="text-input" name="currency" placeholder="Moneda" onChange={this.handleInputChange} value={this.state.currency} /><br></br>
@@ -108,7 +118,7 @@ const mapStateToProps = state => {
     // locale: state.locale,
     //endAirportID: state.endAirport,
     //startAirrportID: state.startAirport,
-    flights: state.list
+    flights: state.flight.list
   }
 };
 const mapDispatchToProps = dispatch => {
